@@ -9,7 +9,7 @@
   for(;;){
     $aux=fgets($fp);
     if(feof($fp))break;
-    $dd=explode(",",$aux);
+    $dd=explode(",",trim($aux));
     @ $acc[$dd[0]][substr($dd[2],0,1)]++;
   }
   fclose($fp);
