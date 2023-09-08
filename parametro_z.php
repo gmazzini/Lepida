@@ -9,7 +9,7 @@
   for(;;){
     $aux=fgets($fp);
     if(feof($fp))break;
-    $dd=explode(",",$aux);
+    $dd=explode(",",trim($aux));
     $rr=explode(":",$dd[3]);
     $oo=$rr[0]*60+$rr[1];
     @ $acc[$dd[1]][$dd[0]]+=$oo;
@@ -20,7 +20,7 @@
   for(;;){
     $aux=fgets($fp);
     if(feof($fp))break;
-    $dd=explode(",",$aux);
+    $dd=explode(",",trim($aux));
     if($dd[2]=="1")unset($acc[$dd[1]][$dd[0]]);
   }
   fclose($fp);
