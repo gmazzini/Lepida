@@ -10,7 +10,7 @@
     $aux=fgets($fp);
     if(feof($fp))break;
     $dd=explode(",",trim($aux));
-    if($dd[2]=="1")$swo[$dd[1]][$dd[0]]=1;
+    if($dd[2]>0)$swo[$dd[1]][$dd[0]]=1;
   }
   fclose($fp);
 
