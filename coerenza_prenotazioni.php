@@ -52,7 +52,7 @@ foreach($acc as $k => $v){
 
 sort($oo);
 foreach($oo as $k => $v){
-  printf("%s,%d\n",$k,$v);
+  printf("%s,%d\n",$oo[$k],$v);
 }
 
 ?>
