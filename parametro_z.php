@@ -21,7 +21,7 @@
     $aux=fgets($fp);
     if(feof($fp))break;
     $dd=explode(",",trim($aux));
-    if($dd[2]=="1")unset($acc[$dd[1]][$dd[0]]);
+    if($dd[2]>0)unset($acc[$dd[1]][$dd[0]]);
   }
   fclose($fp);
 
