@@ -13,7 +13,7 @@
     $aux=fgets($fp);
     if(feof($fp))break;
     $dd=explode(",",trim($aux));
-    if($dd[2]=="1")unset($acc[$dd[1]][$dd[0]]);
+    if($dd[2]>0)unset($acc[$dd[1]][$dd[0]]);
   }
   fclose($fp);
 
@@ -40,14 +40,14 @@
     $aux=fgets($fp);
     if(feof($fp))break;
     $dd=explode(",",trim($aux));
-    if($dd[4]!="DYN")unset($acc[$id[$dd[11]]]);
+    if(isset($id[$dd[11]]) && $dd[4]!="DYN")unset($acc[$id[$dd[11]]]);
   }
   fclose($fp);
 
   ksort($acc);
   foreach($acc as $k => $v){
     $ll=count($v);
-    if($ll>100)printf("%s,%d\n",$k,$ll);
+    if($ll>10)printf("%s,%d\n",$k,$ll);
   }
 
 ?>
