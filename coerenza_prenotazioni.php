@@ -1,15 +1,21 @@
 <?php
 
-$fp=fopen("r2.csv","r");
+$fp=fopen("ore.csv","r");
 for(;;){
   $aux=fgets($fp);
   if(feof($fp))break;
-  $dd=explode(",",$aux);
-  $acc[$dd[1]][$dd[0]]=1;
+  $dd=explode(",",trim($aux));
+  $rr=explode(":",$dd[3]);
+  $oo=$rr[0]*60+$rr[1];
+  $rr=explode(":",$dd[4]);
+  $mm=$rr[0]*60+$rr[1];
+  $rr=explode(":",$dd[5]);
+  $nn=$rr[0]*60+$rr[1];
+  if($mm==0&&$nn==0)$acc[$dd[1]][$dd[0]]=$oo;
 }
 fclose($fp);
 
-$fp=fopen("r1.csv","r");
+$fp=fopen("swo.csv","r");
 for(;;){
   $aux=fgets($fp);
   if(feof($fp))break;
@@ -18,7 +24,7 @@ for(;;){
 }
 fclose($fp);
 
-$fp=fopen("r3.csv","r");
+$fp=fopen("prenotazioni.csv","r");
 for(;;){
   $aux=fgets($fp);
   if(feof($fp))break;
@@ -27,32 +33,36 @@ for(;;){
 }
 fclose($fp);
 
-$fp=fopen("r5.csv","r");
+$fp=fopen("cf.csv","r");
 for(;;){
   $aux=fgets($fp);
   if(feof($fp))break;
   $dd=explode(",",trim($aux));
   $id[$dd[1]]=$dd[0];
+  $cf[$dd[0]]=$dd[1];
 }
 fclose($fp);
 
-$fp=fopen("r4.csv","r");
+$fp=fopen("allocazioni.csv","r");
 for(;;){
   $aux=fgets($fp);
   if(feof($fp))break;
   $dd=explode(",",trim($aux));
   if(isset($id[$dd[11]]) && $dd[4]!="DYN")unset($acc[$id[$dd[11]]]);
+  $a1[$dd[11]]=$dd[6];
+  $a2[$dd[11]]=$dd[7];
 }
 fclose($fp);
 
 foreach($acc as $k => $v){
   $ll=count($v);
-  $oo[$k]=$ll;
+  $qq[$k]=$ll;
 }
 
-sort($oo);
-foreach($oo as $k => $v){
-  printf("%s,%d\n",$oo[$k],$v);
+arsort($qq);
+foreach($qq as $k => $v){
+  @$who=$cf[$k];
+  printf("%s,%d,%s,%s,%s\n",$k,$v,$who,@$a1[$who],@$a2[$who]);
 }
 
 ?>
