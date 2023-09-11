@@ -64,7 +64,7 @@ foreach($acc as $k1 => $v){
 
 uksort($tt,"mydata");
 foreach($tt as $k => $v){
-  printf("%s,%d,%5.2f%%\n",$k,$tt[$k],(1-$qq[$k]/$tt[$k])*100);
+  printf("%s,%4.1f%%\n",$k,(1-$qq[$k]/$tt[$k])*100);
 }
 
 ?>
