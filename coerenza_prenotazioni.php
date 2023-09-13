@@ -48,7 +48,10 @@ for(;;){
   $aux=fgets($fp);
   if(feof($fp))break;
   $dd=explode(",",trim($aux));
-  if(isset($id[$dd[11]]) && $dd[4]!="DYN")unset($acc[$id[$dd[11]]]);
+  if(isset($id[$dd[11]])){
+    if($dd[4]!="DYN")unset($acc[$id[$dd[11]]]);
+    if($dd[5]==3&&$dd[6]=="92"&&$dd[7]=="93")unset($acc[$id[$dd[11]]]);
+  }
   $a1[$dd[11]]=$dd[6];
   $a2[$dd[11]]=$dd[7];
 }
