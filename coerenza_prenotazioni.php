@@ -65,7 +65,7 @@ foreach($acc as $k => $v){
 arsort($qq);
 foreach($qq as $k => $v){
   @$who=$cf[$k];
-  printf("%s,%d,%s,%s,%s\n",$k,$v,$who,@$a1[$who],@$a2[$who]);
+  if($who!="")printf("%s,%d,%s,%s,%s\n",$k,$v,$who,@$a1[$who],@$a2[$who]);
 }
 
 ?>
