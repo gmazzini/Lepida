@@ -19,7 +19,7 @@ for(;;){
   if(feof($fp))break;
   if(str_contains($aux,"\""))continue;
   $dd=explode(",",trim($aux));
-  if(!$act[$dd[2]])continue;
+  if(!isset($act[$dd[2]]))continue;
   $rr=explode(":",$dd[3]);
   $oo=$rr[0]*60+$rr[1];
   $rr=explode(":",$dd[4]);
