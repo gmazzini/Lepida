@@ -8,7 +8,7 @@ for(;;){
   $dd=$xx[10];
   if($dd[0]=="("){
     $rr=substr($dd,1,strlen($dd)-3);
-    if($rr=="mysave"){
+    if($rr=="mysave" && isset($oo)){
       arsort($oo);
       $tt=(int)(time()/86400);
       $aa=bin2hex(random_bytes(5));
