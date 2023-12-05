@@ -1,12 +1,14 @@
 <?php
 
-$sock=socket_create(AF_INET,SOCK_DGRAM,0);
-socket_bind($sock,"0.0.0.0",6666);
+unlink("/dev/log");
+$sock=socket_create(AF_UNIX,SOCK_DGRAM,0);
+socket_bind($sock,"/dev/log");
 for(;;){
   socket_recvfrom($sock,$buf,1000,0,$remote_ip,$remote_port);
   $xx=explode(" ",$buf);
-  $dd=$xx[10];
-  if($dd[0]=="("){
+  @$dd=$xx[10];
+  @$vv=$xx[4];
+  if(@substr($vv,0,5)=="named" && @$dd[0]=="("){
     $rr=substr($dd,1,strlen($dd)-3);
     if($rr=="mysave" && isset($oo)){
       arsort($oo);
