@@ -8,12 +8,13 @@ foreach($ff as $k => $v){
   $rr=explode("\n",file_get_contents($v));
   foreach($rr as $k2 => $v2){
     $aa=explode(",",trim($v2));
-    @$oo[$aa[0]]+=$aa[1];
+    @$oo[$aa[0]]+=(int)$aa[1];
   }
 }
 arsort($oo);
 $fp=fopen("/mybind/counted/$tt","wt");
-  foreach($oo as $k => $v)if($v>=10)fprintf($fp,"%s,%d\n",$k,$v);
+  foreach($oo as $k => $v)if($v>=100)fprintf($fp,"%s,%d\n",$k,$v);
 fclose($fp);
 
 ?>
+
