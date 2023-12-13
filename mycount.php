@@ -24,7 +24,7 @@ for(;;){
     }
     else {
       @$oo[$rr]++;
-      @$poo[$rr][$ip]=1;
+      @$poo[$rr][ip2long($ip)]++;
     }
   }
 }
