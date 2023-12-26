@@ -4,7 +4,7 @@
 void main(){
   struct timespec t0h,t1h,t0l,t1l,trh,trl;
   int fd,len,i,j;
-  unsigned long led[1000];
+  unsigned long led[1000],aled;
 
   len=100;
   for(i=0;i<len;i++)led[i]=0;
@@ -28,11 +28,28 @@ void main(){
   
   fd=open("/sys/class/gpio/gpio24/value",O_WRONLY);
 
-  write(fd,"1",1); nanosleep(&trh,NULL); write(fd,"0",1); nanosleep(&trl,NULL);
-    
-  write(fd,"1",1); nanosleep(&t0h,NULL); write(fd,"0",1); nanosleep(&t0l,NULL);
-  write(fd,"1",1); nanosleep(&t1h,NULL); write(fd,"0",1); nanosleep(&t1l,NULL);
-
+  write(fd,"1",1);
+  nanosleep(&trh,NULL);
+  write(fd,"0",1);
+  nanosleep(&trl,NULL);
+  for(i=0;i<len;i++){
+    aled=led[i];
+    for(j=0;j<24;j++){
+      if(aled&0){
+        write(fd,"1",1);
+        nanosleep(&t0h,NULL);
+        write(fd,"0",1);
+        nanosleep(&t0l,NULL);
+      }
+      else {
+        write(fd,"1",1);
+        nanosleep(&t1h,NULL);
+        write(fd,"0",1);
+        nanosleep(&t1l,NULL);
+      }
+    }
+    aled>>=1;
+  }
   close(fd);
 
   fd=open("/sys/class/gpio/unexport",O_WRONLY);
