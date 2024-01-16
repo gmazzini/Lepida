@@ -1,6 +1,7 @@
 <?php
 declare(ticks=1);
-$ip=array();
+$ip4=array();
+$ip6=array();
 
 $contextOptions=array(
   'ssl' => array(
@@ -23,13 +24,15 @@ $head="GET /v1/ws/?client=gm1 HTTP/1.1\r\n".
   "\r\n";
 
 pcntl_signal(SIGUSR1,"myout");
+pcntl_signal(SIGUSR2,"myout");
+
 $fp=fsockopen("ssl://ris-live.ripe.net",443);
 fwrite($fp,$head);
 $buf=fread($fp,4096);
 echo $buf;
 mywrite($fp,$data,true);
 
-for($i=0;;){
+for(;;){
   $m1=json_decode(myread($fp));
 
   @$aux=$m1->{"data"}->{"path"};
@@ -38,9 +41,9 @@ for($i=0;;){
   @$pre=$aux[0]->{"prefixes"};
 
   if(isset($pre)){
-    foreach($pre as $v)if(strpos($v,":")===false){
-      $ip[$v]=$asn;
-      $i++;
+    foreach($pre as $v){
+      if(strpos($v,":")===false)$ip4[$v]=$asn;
+      else $ip6[$v]=$asn;
     }
   }
 }
@@ -94,18 +97,9 @@ function mywrite($fp,$data,$final){
 }
 
 function myout($sig){
-  global $ip;
-  $vv=$ip;
-  uksort($vv,"mycmp");
-  $fp=fopen("/home/www/fulltable.mazzini.org/m1.txt","w");
-  foreach($vv as $k => $v)fprintf($fp,"%s,%d\n",$k,$v);
-  fclose($fp);
-}
-
-function mycmp($a,$b){
-  $ma=explode(".",$a); $va=($ma[2])|($ma[1]<<8)|($ma[0]<<16);
-  $mb=explode(".",$b); $vb=($mb[2])|($mb[1]<<8)|($mb[0]<<16);
-  return $va-$vb;
+  global $ip4,$ip6;
+  if($sig==SIGUSR1)file_put_contents("/home/www/fulltable.mazzini.org/ip4.txt",var_export($ip4,true));
+  elseif($sig==SIGUSR2)file_put_contents("/home/www/fulltable.mazzini.org/ip6.txt",var_export($ip6,true));
 }
 
 ?>
