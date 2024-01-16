@@ -29,7 +29,6 @@ pcntl_signal(SIGUSR2,"myout");
 $fp=fsockopen("ssl://ris-live.ripe.net",443);
 fwrite($fp,$head);
 $buf=fread($fp,4096);
-echo $buf;
 mywrite($fp,$data,true);
 
 for(;;){
