@@ -23,11 +23,10 @@ for($j=0;$j<$i;$j++){
   for($x=$v[$j][0];$x<$ex;$x++)$cc[$x]=$v[$j][2];
 }
 
-echo mys("137.204.20.30")."\n";
-echo mys("188.210.239.1")."\n";
-echo mys("17.33.44.55")."\n";
-echo mys("8.8.8.8")."\n";
+while (FALSE !== ($line = fgets(STDIN))) {
+   echo mys($line)."\n";
 
+}
 
 function mys($buf){
   global $cc;
