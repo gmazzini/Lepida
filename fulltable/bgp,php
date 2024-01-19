@@ -35,7 +35,8 @@ for(;;){
   $m1=json_decode(myread($fp));
 
   @$aux=$m1->{"data"}->{"path"};
-  @$asn=end($aux);
+  if(is_array($aux))$asn=end($aux);
+  else $asn="";
   @$aux=$m1->{"data"}->{"announcements"};
   @$pre=$aux[0]->{"prefixes"};
 
