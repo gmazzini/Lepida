@@ -4,7 +4,7 @@ $access_token=file_get_contents("/home/www/data/access_token");
 
 $file_content=file_get_contents($target_file); 
 $mime_type=mime_content_type($target_file); 
-$ch = curl_init();
+$ch=curl_init();
 curl_setopt($ch,CURLOPT_URL,"https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart");
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
 curl_setopt($ch,CURLOPT_POST,1);
