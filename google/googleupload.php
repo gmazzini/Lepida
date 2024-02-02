@@ -1,5 +1,4 @@
 <?php
-include "googleset.php";
 $access_token=file_get_contents("/home/www/data/access_token");
 
 $file_content=file_get_contents($target_file); 
