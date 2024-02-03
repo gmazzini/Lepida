@@ -1,6 +1,6 @@
 <?php
-$access_token=file_get_contents("/home/www/data/access_token");
-
+$access_token=file_get_contents("/mybind/counted/access_token");
+$target_file="/mybind/counted/19753";
 $file_content=file_get_contents($target_file); 
 $mime_type=mime_content_type($target_file); 
 $ch=curl_init();
