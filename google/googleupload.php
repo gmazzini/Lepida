@@ -1,5 +1,6 @@
 <?php
 $ff=$argv[1];
+if($ff==0)$ff=(int)(time()/86400);
 $access_token=file_get_contents("/mybind/counted/access_token");
 $target_file="/mybind/counted/$ff";
 $file_content=file_get_contents($target_file);
