@@ -10,5 +10,5 @@ fclose($fp);
 
 uksort($acc,"mydata");
 foreach($acc as $k => $v){
-  @ printf("%s,%d\n",$k,$v);
+  @ printf("%s,%d,%d\n",$k,$v["BPT"],$v["BP1"]);
 }
