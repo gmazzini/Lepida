@@ -20,7 +20,7 @@ $tt=0;
 foreach($acc as $k => $v){
   $t=$v["BPT"]+$v["BP1"]+$v["LB1"]+$v["LB2"]+$v["LD1"]+$v["PP4"];
   if($t>50){
-    @ $vv["BPT"]+=$v["BPT"];
+    $vv["BPT"]+=$v["BPT"];
     @ $vv["BP1"]+=$v["BP1"];
     @ $vv["LB1"]+=$v["LB1"]; 
     @ $vv["LB2"]+=$v["LB2"];
