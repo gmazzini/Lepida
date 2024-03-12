@@ -25,7 +25,7 @@ foreach($acc as $k => $v){
     @ $vv["LB1"]+=$v["LB1"]; 
     @ $vv["LB2"]+=$v["LB2"];
     @ $vv["LD1"]+=$v["LD1"];
-    $vv["PP4"]+=$v["PP4"];
+    @ $vv["PP4"]+=$v["PP4"];
     $tt++;
   }
   @ printf("%s,%d,%d,%d,%d,%d,%d\n",$k,$v["BPT"],$v["BP1"],$v["LB1"],$v["LB2"],$v["LD1"],$v["PP4"]);
