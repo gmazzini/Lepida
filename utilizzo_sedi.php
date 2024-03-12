@@ -30,6 +30,6 @@ foreach($acc as $k => $v){
   }
   @ printf("%s,%d,%d,%d,%d,%d,%d\n",$k,$v["BPT"],$v["BP1"],$v["LB1"],$v["LB2"],$v["LD1"],$v["PP4"]);
 }
-printf("ave %4.2f,%4.2f,%4.2f,%4.2f,%4.2f,%4.2f\n",$vv["BPT"]/$tt,$vv["BP1"]/$tt,$vv["LB1"]/$tt,$vv["LB2"]/$tt,$vv["LD1"]/$tt,$vv["PP4"]/$tt);
+printf("ave %4.1f,%4.1f,%4.1f,%4.1f,%4.1f,%4.1f\n",$vv["BPT"]/$tt,$vv["BP1"]/$tt,$vv["LB1"]/$tt,$vv["LB2"]/$tt,$vv["LD1"]/$tt,$vv["PP4"]/$tt);
 
 ?>
