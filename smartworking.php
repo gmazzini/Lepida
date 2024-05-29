@@ -63,8 +63,11 @@ foreach($acc as $k1 => $v){
 }
 
 uksort($tt,"mydata");
+$aqq=0; $att=0;
 foreach($tt as $k => $v){
   printf("%s,%4.1f%%\n",$k,(1-$qq[$k]/$tt[$k])*100);
-}
-
+  $aqq+=$qq[$k]; 
+  $att+=$tt[$k];
+}  
+printf("ALL,%4.1f%%\n",(1-$aqq/$att)*100);
 ?>
