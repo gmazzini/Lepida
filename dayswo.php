@@ -11,7 +11,7 @@ for(;;){
   $mm=$rr[0]*60+$rr[1];
   $rr=explode(":",$dd[5]);
   $nn=$rr[0]*60+$rr[1];
-  if($mm==0 && $nn==0)$acc[$dd[1]][$dd[0]]+=$oo;
+  if($mm==0 && $nn==0)@$acc[$dd[1]][$dd[0]]+=$oo;
 }
 fclose($fp);
 
