@@ -21,7 +21,7 @@ for(;;){
   $aux=fgets($fp);
   if(feof($fp))break;
   $dd=explode(",",trim($aux));
-  if($dd[2]>0 && $acc[$dd[1]][$dd[0]]>0)$swo++;
+  @if($dd[2]>0 && $acc[$dd[1]][$dd[0]]>0)$swo++;
 }
 fclose($fp);
 
