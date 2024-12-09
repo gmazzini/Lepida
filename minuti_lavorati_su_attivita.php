@@ -35,8 +35,11 @@ for(;;){
 fclose($fp);
 
 uksort($acc,"mydata");
+$n=0;
 foreach($acc as $k => $v){
   printf("%s,%d,%d,%d,%5.3f%%,%5.3f%%\n",$k,$v["A"],$v["V"],$v["S"],$v["V"]/$v["A"]*100,$v["S"]/$v["A"]*100);
+    $n++;
 }
+if($n==0)printf("xx,0,0,0,0.000,0.000\n");
 
 ?>
