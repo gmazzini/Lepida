@@ -13,6 +13,7 @@ for(;;){
 }
 fclose($fp);
 
+$acc=array();
 $fp=fopen("ore.csv","r");
 for(;;){
   $aux=fgets($fp);
