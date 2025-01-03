@@ -46,7 +46,7 @@ for($i=0;$i<$nv;$i++){
   }
   if($rr==0)$rr=1+date("w",$dd[$i]*86400);
   switch($rr){
-    case 1: case 2: case 3: case 4: case 5: $cc=imagecolorallocate($image,255,265,0); break;
+    case 1: case 2: case 3: case 4: case 5: $cc=imagecolorallocate($image,255,165,0); break;
     case 6: $cc=imagecolorallocate($image,255,0,0); break;
     case 7: $cc=imagecolorallocate($image,0,0,255); break;
     case 8: $cc=imagecolorallocate($image,0,255,0); break;
