@@ -40,8 +40,9 @@ for($i=0;$i<$nv;$i++){
   $rr=0;
   $x=date("dmy",$dd[$i]*86400);
   foreach($festivi as $fes){
-    if(strlen($fes)==4 && $fes==substr($x,0,4))$rr=8;
-    else if($fes==$x)$rr=8;
+    $aux=trim($fes);
+    if(strlen($aux)==4 && $aux==substr($x,0,4))$rr=8;
+    else if($aux==$x)$rr=8;
   }
   if($rr==0)$rr=1+date("w",$dd[$i]*86400);
   switch($rr){
