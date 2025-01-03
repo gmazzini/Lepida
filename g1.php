@@ -1,4 +1,6 @@
 <?php
+// example of usage =IMAGE("https://energy.chaos.cc/g1.php?p=90*112*5*10*16*50*2.5*"&RAND()&"&q="&TEXTJOIN("*",FALSE,{A2:A,D2:D}),1)
+
 $p=$_GET["p"];
 $aux=explode("*",$p);
 $yfrom=$aux[0];
@@ -9,7 +11,6 @@ $zz=$aux[4];
 $zzfont=$aux[5];
 $zzsp=$aux[6];
 $seq=$aux[7];
-
 $q=$_GET["q"];
 $nv=0; $i=0;
 foreach(explode("*",$q) as $v){
@@ -27,7 +28,6 @@ foreach(explode("*",$q) as $v){
 array_multisort($dd,$pp);
 
 header('Content-Type: image/png');
-
 $ww=$zzfont*$zzsp+$nv*$zz;
 $hh=$ww*9/16;
 $image=imagecreatetruecolor($ww,$hh);
