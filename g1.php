@@ -39,7 +39,7 @@ $festivi=explode("\n",$aux);
 for($i=0;$i<$nv;$i++){
   $rr=0;
   $x=date("dmy",$dd[$i]*86400);
-  foreact($festivi as $fes){
+  foreach($festivi as $fes){
     if(strlen($fes)==4 && $fes==substr($x,0,4))$rr=8;
     else if($fes==$x)$rr=8;
   }
