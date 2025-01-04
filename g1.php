@@ -47,7 +47,7 @@ for($i=0;$i<$nv;$i++){
     if(strlen($aux)==4 && $aux==substr($x,0,4))$rr=8;
     else if($aux==$x)$rr=8;
   }
-  if($rr==0)$rr=1+date("w",$dd[$i]*86400);
+  if($rr==0)$rr=1+date("w",$dd[$i]*86400+7200);
   switch($rr){
     case 1: case 2: case 3: case 4: case 5: $cc=imagecolorallocate($image,255,165,0); break;
     case 6: $cc=imagecolorallocate($image,255,0,0); break;
