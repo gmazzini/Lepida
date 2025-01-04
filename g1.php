@@ -19,10 +19,10 @@ foreach(explode("*",$q) as $v){
     $i=1;
   }
   else {
-    if($v>0.5){
-    if($v<$yfrom)$v=$yfrom;
-    if($v>$yto)$v=$yto;
-    $pp[$nv++]=$v;
+    if(abs($v)>0.5){
+      if($v<$yfrom)$v=$yfrom;
+      if($v>$yto)$v=$yto;
+      $pp[$nv++]=$v;
     }
     else unset($dd[$nv]);
     $i=0;
