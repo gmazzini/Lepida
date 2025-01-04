@@ -24,6 +24,7 @@ foreach(explode("*",$q) as $v){
     if($v>$yto)$v=$yto;
     $pp[$nv++]=$v;
     }
+    else unset $dd[$nv];
     $i=0;
   }
 }
