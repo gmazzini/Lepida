@@ -18,12 +18,10 @@ foreach(explode("*",$q) as $v){
     $dd[$nv]=$v;
     $i=1;
   }
-  else {
-    if(1==1){
-      if($v<$yfrom)$v=$yfrom;
-      if($v>$yto)$v=$yto;
-      $pp[$nv++]=$v;
-    }
+  else {    
+    if($v<$yfrom)$v=$yfrom;
+    if($v>$yto)$v=$yto;
+    $pp[$nv++]=$v;
     $i=0;
   }
 }
