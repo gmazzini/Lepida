@@ -19,9 +19,11 @@ foreach(explode("*",$q) as $v){
     $i=1;
   }
   else {
-    if($v<$yfrom)$v=$yfrom;
-    if($v>$yto)$v=$yto;
-    $pp[$nv++]=$v;
+    if(strlen($v)>0){
+      if($v<$yfrom)$v=$yfrom;
+      if($v>$yto)$v=$yto;
+      $pp[$nv++]=$v;
+    }
     $i=0;
   }
 }
