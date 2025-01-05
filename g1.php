@@ -39,6 +39,7 @@ imagefill($image,0,0,$backgroundColor);
 
 $aux=file_get_contents("festivi");
 $festivi=explode("\n",$aux);
+$i=0;
 foreach($kv as $k => $v){
   $rr=0;
   $x=date("dmy",$k*86400);
@@ -56,6 +57,7 @@ foreach($kv as $k => $v){
   }
   $vv=(int)($hh*($v-$yfrom)/($yto-$yfrom));
   imagefilledrectangle($image,$zzfont*$zzsp+$i*$zz,$hh,$zzfont*$zzsp+$i*$zz+$zz/2,$hh-$vv,$cc);
+  $i++;
 }
 $black=imagecolorallocate($image,0,0,0);
 $font="./xb-arial.ttf";
