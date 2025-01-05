@@ -28,7 +28,12 @@ foreach(explode("*",$q) as $v){
   }
 }
 ksort($kv);
-
+$ok=array_key_first($kv);
+foreach($kv as $k => $v){
+  if($k-$ok>$xstep)for($i=$ok+1;$i<$ok+$xstep)$kv[$i]=0;
+}
+ksort($kv);
+                       
 $nv=count($kv);
 header('Content-Type: image/png');
 $ww=$zzfont*$zzsp+$nv*$zz;
