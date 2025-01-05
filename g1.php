@@ -65,11 +65,11 @@ for($y=$yfrom;$y<=$yto;$y+=$ystep){
   $vv=(int)($hh*($y-$yfrom)/($yto-$yfrom));
   imagettftext($image,$zzfont,0,0,$hh-$vv,$black,$font,$y);
 }
-
-// for($i=0;$i<$nv;$i+=$xstep){
-  // $x=date("dmy",$dd[$i]*86400);
-  // imagettftext($image,$zzfont,90,$zzfont/2+$zzfont*$zzsp+$i*$zz,$hh,$black,$font,$x);
-// }
+$kk=array_keys($kv);
+for($i=0;$i<$nv;$i+=$xstep){
+  $x=date("dmy",$kk[$i]*86400);
+  imagettftext($image,$zzfont,90,$zzfont/2+$zzfont*$zzsp+$i*$zz,$hh,$black,$font,$x);
+}
 
 imagepng($image);
 imagedestroy($image);
