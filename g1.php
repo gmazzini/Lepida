@@ -31,6 +31,7 @@ ksort($kv);
 $ok=array_key_first($kv);
 foreach($kv as $k => $v){
   if($k-$ok>$xstep)for($i=$ok+1;$i<$ok+$xstep;$i++)$kv[$i]=$yfrom;
+  $ok=$k;
 }
 ksort($kv);
                        
