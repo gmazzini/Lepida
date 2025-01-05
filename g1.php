@@ -30,7 +30,7 @@ foreach(explode("*",$q) as $v){
 ksort($kv);
 $ok=array_key_first($kv);
 foreach($kv as $k => $v){
-  if($k-$ok>$xstep)for($i=$ok+1;$i<$ok+$xstep)$kv[$i]=0;
+  if($k-$ok>$xstep)for($i=$ok+1;$i<$ok+$xstep)$kv[$i]=$yfrom;
 }
 ksort($kv);
                        
