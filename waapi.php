@@ -16,7 +16,7 @@ if(in_array($from,$friends) && $zz["type"]=="chat"){
   foreach($cc as $msg){
     $l=strpos($msg," ");
     if($l===false)$l=strlen($msg);
-    $out="```".date("--- Y-m-d H:i:s\n")." $msg";
+    $out="```".date("--- Y-m-d H:i:s ")." $msg\n";
     
     if($l<4 && substr($msg,0,$l)=="/cc"){
       $in=substr($msg,$l+1);
