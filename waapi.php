@@ -110,4 +110,29 @@ if($l<14 && substr($msg,0,$l)=="/airpollution"){
   
 }
 
+// file_put_contents("/home/www/waapi/out.txt", print_r($action,true));
+
+function mysend($num,$msg){
+  global $waapi_apiID,$waapi_channelID;
+  $headers[]="accept: application/json";
+  $headers[]="authorization: Bearer $waapi_apiID";
+  $headers[]="content-type: application/json";
+  $data["chatId"]=$num;
+  $data["message"]=$msg;
+  $ch=curl_init();
+  curl_setopt($ch,CURLOPT_URL,"https://waapi.app/api/v1/instances/$waapi_channelID/client/action/send-message");
+  curl_setopt($ch,CURLOPT_RETURNTRANSFER,0);
+  curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,FALSE);
+  curl_setopt($ch,CURLOPT_HTTPHEADER,$headers);
+  curl_setopt($ch,CURLOPT_POST,1);
+  curl_setopt($ch,CURLOPT_POSTFIELDS,json_encode($data));
+  echo curl_exec($ch);
+  curl_close($ch);
+}
+
+function myse($arr,$val){
+  for($i=0;$i<5;$i++)if($val<$arr[$i])break;
+  return $i+1;
+}
+
 ?>
