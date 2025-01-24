@@ -10,13 +10,13 @@ $from=$aux[0];
 
 if(in_array($from,$friends) && $zz["type"]=="chat"){
   $aux=$zz["body"];
-  if(isset($alias[$aux]))$cc=explode("\n",$alias[$msg]);
-  else $cc=explode("\n",$msg);
+  if(isset($alias[$aux]))$cc=explode("\n",$alias[$aux]);
+  else $cc=explode("\n",$aux);
   
   foreach($cc as $msg){
     $l=strpos($msg," ");
     if($l===false)$l=strlen($msg);
-    $out="```".date("--- Y-m-d H:i:s\n");
+    $out="```".date("--- Y-m-d H:i:s\n")." $msg";
     
     if($l<4 && substr($msg,0,$l)=="/cc"){
       $in=substr($msg,$l+1);
