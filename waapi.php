@@ -10,7 +10,7 @@ $from=$aux[0];
 
 if(in_array($from,$friends) && $zz["type"]=="chat"){
   $msg=$zz["body"];
-  if($msg=="@12")$msg="/cc status";
+  if(isset($alias[$msg]))$msg=$alias[$msg];
   $l=strpos($msg," ");
   if($l===false)$l=strlen($msg);
   $out="```".date("--- Y-m-d H:i:s\n");
