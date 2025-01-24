@@ -2,8 +2,8 @@
 
 include "setup.php";
 
-$json = file_get_contents('php://input');
-$action = json_decode($json, true);
+$json=file_get_contents('php://input');
+$action=json_decode($json,true);
 $zz=$action["data"]["message"];
 $aux=explode("@",$zz["from"]);
 $from=$aux[0];
@@ -109,3 +109,5 @@ if($l<14 && substr($msg,0,$l)=="/airpollution"){
   mysend($from,$out);
   
 }
+
+?>
