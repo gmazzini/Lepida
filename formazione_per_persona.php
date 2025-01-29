@@ -25,14 +25,14 @@ foreach($lines as $aux){
 }
 foreach($acc as $k => $v)printf("%s,%d\n",$k,$v);
 
-$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:B2\", \"majorDimension\":\"ROWS\",";
+$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:B4\", \"majorDimension\":\"ROWS\",";
 $oo.="\"values\": [";
 $n=0; 
 foreach($acc as $k => $v){
   if($n>0)$oo.=",";
   $oo.="[\"$k\",$v]";
   $n++;
-  if($n>=2)break;
+  if($n>=4)break;
 }
 $oo.="] }] }";
 
