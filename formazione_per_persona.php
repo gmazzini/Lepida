@@ -32,7 +32,7 @@ foreach($acc as $k => $v){
   if($n>0)$oo.=",";
   $oo.="[\"$k\",$v]";
   $n++;
-  if($n>2)break;
+  if($n>=2)break;
 }
 $oo.="] }] }";
 
