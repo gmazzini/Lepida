@@ -28,9 +28,15 @@ $oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:B800\", \"
 $oo.="\"values\": [";
 $n=0; 
 foreach($acc as $k => $v){
-  if($n>=2)break;
+  if($n>=800)break;
   if($n>0)$oo.=",";
   $oo.="[\"$k\",$v]";
+  $n++;
+}
+for($;;){
+  if($n>=800)break;
+  if($n>0)$oo.=",";
+  $oo.="[\"\",0]";
   $n++;
 }
 $oo.="] }] }";
