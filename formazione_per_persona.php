@@ -18,6 +18,7 @@ print_r($lines);
 foreach($lines as $aux){
   if(str_contains($aux,"\""))continue;
   $dd=explode(",",trim($aux));
+  if(!isset($dd[2]))continue;
   if(!isset($act[$dd[2]]))continue;
   $rr=explode(":",$dd[3]);
   $oo=$rr[0]*60+$rr[1];
