@@ -35,8 +35,6 @@ foreach($acc as $k => $v){
 }
 $oo.="] }] }";
 
-print_r($oo);
-
 $access_token=file_get_contents("/home/www/data/access_token");
 $ch=curl_init();
 curl_setopt($ch,CURLOPT_URL,"https://sheets.googleapis.com/v4/spreadsheets/1vNh5kuo0xzQxOpPIiiUSCoG7csWNu1IFL4PPa4-t_Vo/values:batchUpdate");
