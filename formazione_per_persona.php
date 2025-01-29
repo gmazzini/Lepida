@@ -33,7 +33,7 @@ foreach($acc as $k => $v){
   $oo.="[\"$k\",$v]";
   $n++;
 }
-for($;;){
+for(;;){
   if($n>=800)break;
   if($n>0)$oo.=",";
   $oo.="[\"\",0]";
