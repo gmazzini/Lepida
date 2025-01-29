@@ -26,7 +26,7 @@ foreach($lines as $aux){
 foreach($acc as $k => $v)printf("%s,%d\n",$k,$v);
 
 $oo="{ \"valueInputOption\": \"RAW\", \"data\": [{ \"range\": \"f_ore!A1:B2\", \"majorDimension\": \"ROWS\",";
-$oo.="\""values\": [ [112233,444], [334455,555] ]";
+$oo.="\"values\": [ [112233,444], [334455,555] ]";
 $oo.="}] }";
 
 $access_token=file_get_contents("/home/www/data/access_token");
