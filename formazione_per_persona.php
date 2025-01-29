@@ -30,9 +30,9 @@ $curlPost='
 {
   "valueInputOption": "RAW",
   "data": [{
-      "range": "f_ore!A1:A2",
+      "range": "f_ore!A1:B2",
       "majorDimension": "ROWS",
-      "values": [ [112233], [334455] ]
+      "values": [ [112233,444], [334455,555] ]
     }]
 }';
 $ch=curl_init();
