@@ -24,14 +24,14 @@ foreach($lines as $aux){
   @$acc[$dd[1]]+=$oo;
 }
 
-$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:B100\", \"majorDimension\":\"ROWS\",";
+$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:B800\", \"majorDimension\":\"ROWS\",";
 $oo.="\"values\": [";
 $n=0; 
 foreach($acc as $k => $v){
   if($n>0)$oo.=",";
   $oo.="[\"$k\",$v]";
   $n++;
-  if($n>=100)break;
+  if($n>=800)break;
 }
 $oo.="] }] }";
 
