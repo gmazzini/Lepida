@@ -32,7 +32,7 @@ $curlPost='
   "data": [{
       "range": "f_ore!A1",
       "majorDimension": "ROWS",
-      "values": [[ ciao ]]
+      "values": [[ 112233 ]]
     }]
 }';
 $ch=curl_init();
