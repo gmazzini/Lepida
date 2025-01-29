@@ -1,4 +1,5 @@
 <?php
+
 $fp=fopen("formazione","r");
 for(;;){
   $aux=trim(fgets($fp));
