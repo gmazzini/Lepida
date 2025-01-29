@@ -10,8 +10,8 @@ for(;;){
 fclose($fp);
 
 $acc=array();
-$from=date(0101y);
-$to=date(3112y);
+$from=date("0101y");
+$to=date("3112y");
 
 $all=file_get_contents("https://orelavorate.lepida.it/download/proc.php?token=$token&from=$from&to=$to");
 $lines=explode("\n",$all);
