@@ -25,20 +25,11 @@ foreach($lines as $aux){
 }
 foreach($acc as $k => $v)printf("%s,%d\n",$k,$v);
 
-$oo="{ \"valueInputOption\": \"RAW\", \"data\": [{ \"range\": \"f_ore!A1:B2\", \"majorDimension\": \"ROWS\",";
+$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:B2\", \"majorDimension\":\"ROWS\",";
 $oo.="\"values\": [ [112233,444], [334455,555] ]";
 $oo.="}] }";
 
 $access_token=file_get_contents("/home/www/data/access_token");
-$curlPost='
-{
-  "valueInputOption": "RAW",
-  "data": [{
-      "range": "f_ore!A1:B2",
-      "majorDimension": "ROWS",
-      "values": [ [112233,444], [334455,555] ]
-    }]
-}';
 $ch=curl_init();
 curl_setopt($ch,CURLOPT_URL,"https://sheets.googleapis.com/v4/spreadsheets/1vNh5kuo0xzQxOpPIiiUSCoG7csWNu1IFL4PPa4-t_Vo/values:batchUpdate");
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
