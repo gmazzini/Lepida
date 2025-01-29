@@ -14,6 +14,7 @@ $from=date("0101y");
 $to=date("3112y");
 $all=file_get_contents("https://orelavorate.lepida.it/download/proc.php?token=$token&from=$from&to=$to");
 $lines=explode("\n",$all);
+print_r($lines);
 foreach($lines as $aux){
   if(str_contains($aux,"\""))continue;
   $dd=explode(",",trim($aux));
