@@ -23,16 +23,15 @@ foreach($lines as $aux){
   $oo=$rr[0]*60+$rr[1];
   @$acc[$dd[1]]+=$oo;
 }
-foreach($acc as $k => $v)printf("%s,%d\n",$k,$v);
 
-$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:B4\", \"majorDimension\":\"ROWS\",";
+$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:B100\", \"majorDimension\":\"ROWS\",";
 $oo.="\"values\": [";
 $n=0; 
 foreach($acc as $k => $v){
   if($n>0)$oo.=",";
   $oo.="[\"$k\",$v]";
   $n++;
-  if($n>=4)break;
+  if($n>=100)break;
 }
 $oo.="] }] }";
 
