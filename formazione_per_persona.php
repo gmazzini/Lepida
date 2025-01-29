@@ -25,6 +25,10 @@ foreach($lines as $aux){
 }
 foreach($acc as $k => $v)printf("%s,%d\n",$k,$v);
 
+$oo="{ \"valueInputOption\": \"RAW\", \"data\": [{ \"range\": \"f_ore!A1:B2\", \"majorDimension\": \"ROWS\",";
+$oo.="\""values\": [ [112233,444], [334455,555] ]";
+$oo.="}] }";
+
 $access_token=file_get_contents("/home/www/data/access_token");
 $curlPost='
 {
@@ -41,7 +45,7 @@ curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
 curl_setopt($ch,CURLOPT_POST,1);
 curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,FALSE);
 curl_setopt($ch,CURLOPT_HTTPHEADER,Array("Content-Type: application/json","Authorization: Bearer ".$access_token));
-curl_setopt($ch,CURLOPT_POSTFIELDS,$curlPost);
+curl_setopt($ch,CURLOPT_POSTFIELDS,$oo);
 curl_exec($ch);
 curl_close($ch);
 
