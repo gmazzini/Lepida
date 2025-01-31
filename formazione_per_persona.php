@@ -32,7 +32,14 @@ foreach($lines as $aux){
   @$acc[$dd[1]]["s"]+=$dd[2];
 }
 
-$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:C800\", \"majorDimension\":\"ROWS\",";
+$all=file_get_contents("https://orelavorate.lepida.it/download/getParcheggi.php?token=$token&from=$from&to=$to");
+$lines=explode("\n",$all);
+foreach($lines as $aux){
+  $dd=explode(",",trim($aux));
+  @$acc[$dd[1]]["p"]++;
+}
+
+$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:D800\", \"majorDimension\":\"ROWS\",";
 $oo.="\"values\": [";
 $n=0; 
 foreach($acc as $k => $v){
@@ -40,13 +47,14 @@ foreach($acc as $k => $v){
   if($n>0)$oo.=",";
   if(isset($v["f"]))$vf=$v["f"]; else $vf=0;
   if(isset($v["s"]))$vs=$v["s"]; else $vs=0;
-  @$oo.="[\"$k\",$vf,$vs]";
+  if(isset($v["p"]))$vp=$v["p"]; else $vp=0;
+  @$oo.="[\"$k\",$vf,$vs,$vp]";
   $n++;
 }
 for(;;){
   if($n>=800)break;
   if($n>0)$oo.=",";
-  $oo.="[\"\",0,0]";
+  $oo.="[\"\",0,0,0]";
   $n++;
 }
 $oo.="] }] }";
