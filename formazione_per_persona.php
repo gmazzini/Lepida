@@ -34,7 +34,7 @@ foreach($lines as $aux){
 
 foreach($acc as $k => $v){
  print_r($k);
-  print_r($v);
+  print_r($v["f"]);
   
   
 }
