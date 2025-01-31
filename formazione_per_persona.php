@@ -46,7 +46,7 @@ foreach($lines as $aux){
   @$acc[$dd[1]]["d"]++;
 }
 
-$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A2:E801\", \"majorDimension\":\"ROWS\",";
+$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"OreLav!A2:E801\", \"majorDimension\":\"ROWS\",";
 $oo.="\"values\": [";
 $n=0; 
 foreach($acc as $k => $v){
