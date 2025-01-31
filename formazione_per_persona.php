@@ -12,6 +12,7 @@ fclose($fp);
 $acc=array();
 $from=date("0101y");
 $to=date("3112y");
+
 $all=file_get_contents("https://orelavorate.lepida.it/download/proc.php?token=$token&from=$from&to=$to");
 $lines=explode("\n",$all);
 foreach($lines as $aux){
@@ -21,7 +22,14 @@ foreach($lines as $aux){
   if(!isset($act[$dd[2]]))continue;
   $rr=explode(":",$dd[3]);
   $oo=$rr[0]*60+$rr[1];
-  @$acc[$dd[1]]+=$oo;
+  @$acc[$dd[1]]["f"]+=$oo;
+}
+
+$all=file_get_contents("https://orelavorate.lepida.it/download/listswo.php?token=$token&from=$from&to=$to");
+$lines=explode("\n",$all);
+foreach($lines as $aux){
+  $dd=explode(",",trim($aux));
+  @$acc[$dd[1]]["s"]+=$dd[2];
 }
 
 $oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:B800\", \"majorDimension\":\"ROWS\",";
@@ -30,7 +38,7 @@ $n=0;
 foreach($acc as $k => $v){
   if($n>=800)break;
   if($n>0)$oo.=",";
-  $oo.="[\"$k\",$v]";
+  $oo.="[\"".$k."\",".$v["f"]."]";
   $n++;
 }
 for(;;){
