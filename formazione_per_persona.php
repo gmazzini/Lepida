@@ -32,6 +32,10 @@ foreach($lines as $aux){
   @$acc[$dd[1]]["s"]+=$dd[2];
 }
 
+print_r($acc);
+exit(0);
+
+
 $oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:B800\", \"majorDimension\":\"ROWS\",";
 $oo.="\"values\": [";
 $n=0; 
