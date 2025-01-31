@@ -32,7 +32,12 @@ foreach($lines as $aux){
   @$acc[$dd[1]]["s"]+=$dd[2];
 }
 
-print_r($acc);
+foreach($acc as $k => $v){
+ print_r($k);
+  print_r($v);
+  
+  
+}
 exit(0);
 
 
