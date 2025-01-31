@@ -38,7 +38,9 @@ $n=0;
 foreach($acc as $k => $v){
   if($n>=800)break;
   if($n>0)$oo.=",";
-  @$oo.="[\"".$k."\",".$v["f"].",".$v["s"]."]";
+  if(isset($v["f"]))$vf=$v["f"]; else $vf=0;
+  if(isset($v["s"]))$vs=$v["s"]; else $vs=0;
+  @$oo.="[\"$k\",$vf,$vs]";
   $n++;
 }
 for(;;){
