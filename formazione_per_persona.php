@@ -32,28 +32,19 @@ foreach($lines as $aux){
   @$acc[$dd[1]]["s"]+=$dd[2];
 }
 
-foreach($acc as $k => $v){
- print_r($k);
-  print_r($v["f"]);
-  
-  
-}
-exit(0);
-
-
-$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:B800\", \"majorDimension\":\"ROWS\",";
+$oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:C800\", \"majorDimension\":\"ROWS\",";
 $oo.="\"values\": [";
 $n=0; 
 foreach($acc as $k => $v){
   if($n>=800)break;
   if($n>0)$oo.=",";
-  $oo.="[\"".$k."\",".$v["f"]."]";
+  @$oo.="[\"".$k."\",".$v["f"].",".$v["s"]."]";
   $n++;
 }
 for(;;){
   if($n>=800)break;
   if($n>0)$oo.=",";
-  $oo.="[\"\",0]";
+  $oo.="[\"\",0,0]";
   $n++;
 }
 $oo.="] }] }";
