@@ -32,7 +32,7 @@ foreach($lines as $aux){
   @$acc[$dd[1]]["s"]+=$dd[2];
 }
 
-$all=file_get_contents("https://orelavorate.lepida.it/download/getParcheggi.php?token=$token&from=$from&to=$to");
+$all=file_get_contents("https://prenotapostazioni.lepida.it/download/getParcheggi.php?token=$token&from=$from&to=$to");
 $lines=explode("\n",$all);
 foreach($lines as $aux){
   $dd=explode(",",trim($aux));
