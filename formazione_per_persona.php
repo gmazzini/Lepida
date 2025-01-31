@@ -39,6 +39,13 @@ foreach($lines as $aux){
   @$acc[$dd[1]]["p"]++;
 }
 
+$all=file_get_contents("https://prenotapostazioni.lepida.it/download/elab.php?token=$token&from=$from&to=$to");
+$lines=explode("\n",$all);
+foreach($lines as $aux){
+  $dd=explode(",",trim($aux));
+  @$acc[$dd[1]]["d"]++;
+}
+
 $oo="{ \"valueInputOption\":\"RAW\", \"data\":[{ \"range\":\"f_ore!A1:D800\", \"majorDimension\":\"ROWS\",";
 $oo.="\"values\": [";
 $n=0; 
@@ -48,13 +55,14 @@ foreach($acc as $k => $v){
   if(isset($v["f"]))$vf=$v["f"]; else $vf=0;
   if(isset($v["s"]))$vs=$v["s"]; else $vs=0;
   if(isset($v["p"]))$vp=$v["p"]; else $vp=0;
-  @$oo.="[\"$k\",$vf,$vs,$vp]";
+  if(isset($v["d"]))$vd=$v["d"]; else $vd=0;
+  @$oo.="[\"$k\",$vf,$vs,$vp,$vd]";
   $n++;
 }
 for(;;){
   if($n>=800)break;
   if($n>0)$oo.=",";
-  $oo.="[\"\",0,0,0]";
+  $oo.="[\"\",0,0,0,0]";
   $n++;
 }
 $oo.="] }] }";
