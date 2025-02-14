@@ -21,7 +21,7 @@ if(in_array($from,$friends) && $zz["type"]=="chat"){
     if($l<4 && substr($msg,0,$l)=="/cc"){
       $in=substr($msg,$l+1);
       $socket=socket_create(AF_INET,SOCK_DGRAM,SOL_UDP);
-      $server_ip="100.100.0.78";
+      $server_ip="master.corteconnessa.it";
       $server_port=55556;
       socket_sendto($socket,$in,strlen($in),0,$server_ip,$server_port);
       for(;;){
