@@ -23,7 +23,7 @@ if(in_array($from,$friends) && $zz["type"]=="chat"){
       $server_ip="master.corteconnessa.it";
       $server_port=55556;
       $socket=socket_create(AF_INET,SOCK_DGRAM,SOL_UDP);
-      socket_set_option($socket,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>1,"usec"=>0));
+      socket_set_option($socket,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>10,"usec"=>0));
       socket_sendto($socket,$in,strlen($in),0,$server_ip,$server_port);
       for(;;){
         $ret=socket_recvfrom($socket,$buf,2000,0,$remote_ip,$remote_port);
