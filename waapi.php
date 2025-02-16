@@ -20,20 +20,23 @@ if(in_array($from,$friends) && $zz["type"]=="chat"){
     
     if($l<4 && substr($msg,0,$l)=="/cc"){
       $in=substr($msg,$l+1);
-      $socket=socket_create(AF_INET,SOCK_DGRAM,SOL_UDP);
       $server_ip="master.corteconnessa.it";
       $server_port=55556;
+      $socket=socket_create(AF_INET,SOCK_DGRAM,SOL_UDP);
+      socket_set_option($socket,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>1,"usec"=>0));
       socket_sendto($socket,$in,strlen($in),0,$server_ip,$server_port);
       for(;;){
-        socket_recvfrom($socket,$buf,2000,0,$remote_ip,$remote_port);
+        $ret=socket_recvfrom($socket,$buf,2000,0,$remote_ip,$remote_port);
+        if($ret===false)break;
         $a=strpos($buf,"<next>");
         if($a!==false)echo substr($buf,0,$a).substr($buf,$a+6);
         $a=strpos($buf,"<end>");
         if($a!==false){
-          $out.=substr($buf,0,$a);
+          echo substr($buf,0,$a);
           break;
         }
       }
+      socket_close($socket);
     }
     
     if($l<4 && substr($msg,0,$l)=="/so"){
