@@ -16,7 +16,7 @@ curl_setopt($ch,CURLOPT_POSTFIELDS,$curlPost);
 $oo=json_decode(curl_exec($ch),true);
 $access_token=$oo["access_token"];
 file_put_contents('/home/www/data/access_token',$access_token);
-file_get_contents("https://music.mazzini.org/token.php?access_token=$access_token");
+file_get_contents("https://data.mazzini.org/google.php?access_token=$access_token&pass=$google_pass");
 curl_close($ch);
 
 ?>
