@@ -20,9 +20,9 @@ if(in_array($from,$friends) && $zz["type"]=="chat"){
     
     if($l<4 && substr($msg,0,$l)=="/cc"){
       $in=substr($msg,$l+1);
-      $server_ip="master.corteconnessa.it";
+      $server_ip="2a02:20d9:30:1:44de:f84e:a319:1c8d";
       $server_port=55556;
-      $socket=socket_create(AF_INET,SOCK_DGRAM,SOL_UDP);
+      $socket=socket_create(AF_INET6,SOCK_DGRAM,SOL_UDP);
       socket_set_option($socket,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>10,"usec"=>0));
       socket_sendto($socket,$in,strlen($in),0,$server_ip,$server_port);
       for(;;){
