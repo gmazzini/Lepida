@@ -1,10 +1,10 @@
 <?php
 
-$o1=file_get_contents("/home/www/fulltable.mazzini.org/ip6.txt");
+$o1=file_get_contents("/home/www/fulltable/ip6.txt");
 eval('$ip6='.$o1.';');
 
 uksort($ip6,"mycmp");
-$fp=fopen("/home/www/fulltable.mazzini.org/m6.txt","w");
+$fp=fopen("/home/www/fulltable/m6.txt","w");
 foreach($ip6 as $k => $v)fprintf($fp,"%s,%d\n",$k,$v);
 fclose($fp);
 
