@@ -98,8 +98,8 @@ function mywrite($fp,$data,$final){
 
 function myout($sig){
   global $ip4,$ip6;
-  if($sig==SIGUSR1)file_put_contents("/home/www/fulltable.mazzini.org/ip4.txt",var_export($ip4,true));
-  elseif($sig==SIGUSR2)file_put_contents("/home/www/fulltable.mazzini.org/ip6.txt",var_export($ip6,true));
+  if($sig==SIGUSR1)file_put_contents("/home/www/fulltable/ip4.txt",var_export($ip4,true));
+  elseif($sig==SIGUSR2)file_put_contents("/home/www/fulltable/ip6.txt",var_export($ip6,true));
 }
 
 ?>
