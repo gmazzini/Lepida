@@ -4,8 +4,13 @@ echo "Real time collection from RRC00 Amsterdam\n";
 echo "now version is hourly updated\n";
 echo "Rotation occurs in the night\n\n";
 
-$m4=(int)exec("wc -l /home/www/fulltable/m4.txt");
-echo "<a href='m4.txt'>IPv4 Collected Routing Table now, $m4 raws</a>\n";
+function oo($txt,$ff){
+  $m=(int)exec("wc -l /home/www/fulltable/$ff");
+  echo "<a href='$ff'>Collected Routing Table $txt, $m raws</a>\n";
+}
+oo("IPv4 now","m4.txt");
+  
+
 echo "<a href='m6.txt'>IPv6 Collected Routing Table now</a>\n";
 echo "<a href='m4-1.txt'>IPv4 Collected Routing Table 1d ago</a>\n";
 echo "<a href='m6-1.txt'>IPv6 Collected Routing Table 1d ago</a>\n";
