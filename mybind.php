@@ -1,7 +1,8 @@
 <?php
+include("dnslocal.php");
 
 $ser=sprintf("%05d%04d",(int)(time()/86400),date("H")*60+date("i"));
-$con=mysqli_connect("37.114.41.193","dns","dns.876","dns");
+$con=mysqli_connect($dns_dbip,$dns_user,$dns_passwd,$dns_db);
 $query=mysqli_query($con,"select name,type,value from dns");
 for(;;){
   $row=mysqli_fetch_assoc($query);
@@ -25,7 +26,7 @@ fprintf($fp2,"zone \".\" {type hint; file \"/dev/null\"; };\n");
 foreach($n as $k => $a){
   fprintf($fp2,"zone \"%s\" {type master; file \"/etc/bind/gmdns/%s\"; };\n",$k,$k);
   $fp=fopen("/etc/bind/gmdns/".$k,"wt");
-  fprintf($fp,"\$TTL 333\n");
+  fprintf($fp,"\$TTL $dns_ttl\n");
   fprintf($fp,"@ IN SOA dns1.mazzini.org. gianluca.mazzini.org. ($ser 3600 1800 86400 200)\n");
   fprintf($fp,"@ IN NS dns1.mazzini.org.\n");
   fprintf($fp,"@ IN NS dns2.mazzini.org.\n");
