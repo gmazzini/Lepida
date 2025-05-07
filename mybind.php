@@ -16,7 +16,7 @@ for(;;){
     case "A": $v[$d[1]][$n[$d[1]]++]=$d[0]." IN A ".$row["value"]; break;
     case "AAAA": $v[$d[1]][$n[$d[1]]++]=$d[0]." IN AAAA ".$row["value"]; break;
     case "CNAME": $v[$d[1]][$n[$d[1]]++]=$d[0]." IN CNAME ".$row["value"]."."; break;
-    case "TXT": $v[$d[1]][$n[$d[1]]++]=$d[0]." IN TXT \"".$row["value"]."\""; break;
+    case "TXT": $v[$d[1]][$n[$d[1]]++]=$d[0]." IN TXT ".$row["value"]; break;
     case "MX": $v[$d[1]][$n[$d[1]]++]=$d[0]." IN MX ".$x[1]." ".$row["value"]."."; break;
   }
 }
